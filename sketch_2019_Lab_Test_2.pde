@@ -1,10 +1,13 @@
 ArrayList<Button> buttons;
 Button activeButton;
 
+ArrayList<Code> sequence;
+
 void setup()
 {
   size(600, 600);
 
+  //Buttons
   float radius = map(100, 0, 500, 0, width);
 
   buttons = new ArrayList<Button>();
@@ -17,6 +20,9 @@ void setup()
     float y = height/2 + -cos(angle) * radius;
     buttons.add(new Button(x, y, i));
   }
+
+  //Code
+  sequence = new ArrayList<Code>();
 }
 
 void draw()
@@ -33,6 +39,19 @@ void draw()
     {
       activeButton = b;
     }
+  }
+
+  //Display the code
+  for (int i = 0; i < 4; i++)
+  {
+    float x = width/5 + width/5 * i;
+    float y = 50;
+    sequence.add(new Code(x, y));
+  }
+  
+  for(Code digit : sequence)
+  {
+    digit.display();
   }
 }
 
