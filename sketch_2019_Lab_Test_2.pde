@@ -12,9 +12,9 @@ void setup()
   for(int i = 0; i < 10; i++)
   {
     float angle = map(i, 0, 10, 0, TWO_PI);
-    float x = width/2 + cos(angle) * radius;
-    float y = height/2 + -sin(angle) * radius;
-    buttons.add(new Button(x, y));
+    float x = width/2 + sin(angle) * radius;
+    float y = height/2 + -cos(angle) * radius;
+    buttons.add(new Button(x, y, i));
   }
 }
 
