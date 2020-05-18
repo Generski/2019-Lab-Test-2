@@ -3,6 +3,12 @@ Button activeButton;
 
 ArrayList<Code> sequence;
 
+int sIndex;
+
+boolean pressed;
+
+float offset = 0;
+
 void setup()
 {
   size(600, 600);
@@ -42,24 +48,30 @@ void draw()
   }
 
   //Display the code
-  for (int i = 0; i < 4; i++)
+  /*for (int i = 0; i < sIndex; i++)
+   {
+   float x = width/5 + width/5 * i;
+   float y = 50;
+   sequence.add(new Code(x, y));
+   }*/
+
+  for (int i = 0; i < sequence.size(); i++)
   {
-    float x = width/5 + width/5 * i;
-    float y = 50;
-    sequence.add(new Code(x, y));
-  }
-  
-  for(Code digit : sequence)
-  {
+    Code digit = sequence.get(i);
     digit.display();
   }
+  
+  println(sequence.size());
 }
 
 void mousePressed()
 {
   if (activeButton.press() == true)
   {
-    println(activeButton.number);
+    float x = width/5 + width/5 * offset;
+    float y = 50;
+    sequence.add(new Code(x, y));
+    offset++;
   } else if (activeButton == null)
   {
     return;

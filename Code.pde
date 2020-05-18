@@ -15,7 +15,7 @@ class Code
   
   void display()
   {
-    textSize(20);
+    textSize(textSize);
     text(number, x, y);
   }
 }
