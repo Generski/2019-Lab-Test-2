@@ -55,12 +55,18 @@ void draw()
    sequence.add(new Code(x, y));
    }*/
 
-  for (int i = 0; i < sequence.size(); i++)
+  for (int i = sequence.size() - 1; i >= 0; i--)
   {
-    Code digit = sequence.get(i);
-    digit.display();
+    if (sequence.size() < 4)
+    {
+      Code digit = sequence.get(i);
+      digit.display();
+    } else
+    {
+      sequence.remove(0);
+    }
   }
-  
+
   println(sequence.size());
 }
 
